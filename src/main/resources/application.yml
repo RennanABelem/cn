@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: ms-cn
+    
+  datasource:
+    url: jdbc:mysql://localhost3306/mscn?serverTimezone=UTC
+    usename: root
+    password: 123456
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
