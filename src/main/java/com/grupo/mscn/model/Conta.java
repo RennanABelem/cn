@@ -14,8 +14,10 @@ public class Conta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column(unique = true)
-	private String numeroConta;
+	private Long numeroConta;
+	
 	private String nomeTItular;
 	private Double saldo;
 	
@@ -23,7 +25,7 @@ public class Conta {
 	
 	public Conta(ContaDto contaDto) {
 		this.nomeTItular = contaDto.getNomeTitular();
-		this.numeroConta = contaDto.getNumeroConta();
+		this.numeroConta =  Long.valueOf(contaDto.getNumeroConta()).longValue();
 		this.saldo = contaDto.getSaldo();
 	}
 
@@ -43,11 +45,11 @@ public class Conta {
 		this.nomeTItular = nomeTItular;
 	}
 
-	public String getNumeroConta() {
+	public Long getNumeroConta() {
 		return numeroConta;
 	}
 
-	public void setNumeroConta(String numeroConta) {
+	public void setNumeroConta(Long numeroConta) {
 		this.numeroConta = numeroConta;
 	}
 

@@ -3,8 +3,8 @@ spring:
     name: ms-cn
     
   datasource:
-    url: jdbc:mysql://localhost3306/mscn?serverTimezone=UTC
-    usename: root
+    url: jdbc:mysql://localhost:3306/mscn?serverTimezone=UTC
+    username: root
     password: 123456
   
   jpa:

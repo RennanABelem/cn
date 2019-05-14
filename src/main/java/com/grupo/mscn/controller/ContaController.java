@@ -2,6 +2,8 @@ package com.grupo.mscn.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.grupo.mscn.dto.ContaDto;
 import com.grupo.mscn.model.Conta;
+import com.grupo.mscn.response.MessageResponse;
 import com.grupo.mscn.service.ContaService;
 
 @RestController
@@ -23,9 +26,8 @@ public class ContaController {
 	private ContaService contaService;
 	
 	@PostMapping("salvar")
-	public ResponseEntity<?> salvar(@RequestBody ContaDto contaDto){
-		contaService.salva(contaDto);
-		return new ResponseEntity<>( HttpStatus.CREATED);
+	public ResponseEntity<MessageResponse> salvar(@Valid @RequestBody ContaDto contaDto){
+		return new ResponseEntity<MessageResponse>(contaService.salva(contaDto), HttpStatus.CREATED);
 	}
 	
 	@GetMapping("listar")

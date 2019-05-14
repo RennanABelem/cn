@@ -4,9 +4,10 @@ import java.util.List;
 
 import com.grupo.mscn.dto.ContaDto;
 import com.grupo.mscn.model.Conta;
+import com.grupo.mscn.response.MessageResponse;
 
 public interface ContaService {
 
-	public void salva(ContaDto contaDto);
+	public MessageResponse salva(ContaDto contaDto);
 	public List<Conta> listar();
 }
